@@ -1,0 +1,39 @@
+@model List<HospitalManagement.FeedbackApi.Models.Feedbacks>
+
+@{
+    ViewData["Title"] = "Your Feedbacks";
+    var patientId = ViewBag.PatientId;
+}
+
+<h2>Your Feedbacks</h2>
+
+@if (Model.Count == 0)
+{
+    <p>No feedbacks found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Doctor</th>
+                <th>Rating</th>
+                <th>Comments</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fb in Model)
+            {
+                <tr>
+                    <td>@fb.Doctor?.Name</td>
+                    <td>@fb.Rating</td>
+                    <td>@fb.Comments</td>
+                    <td>@fb.SubmittedAt.ToString("g")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-action="Submit" asp-route-patientId="@patientId">Submit Another Feedback</a>

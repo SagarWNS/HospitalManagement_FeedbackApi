@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Submit Feedback";
+    var appointments = ViewBag.Appointments as List<HospitalManagement.FeedbackApi.Models.Appointment>;
+    var patientId = ViewBag.PatientId;
+}
+
+<h2>Submit Feedback</h2>
+
+<form asp-action="Submit" asp-controller="FeedbackView" method="post">
+    @Html.AntiForgeryToken()
+    <p>Debug: PatientId=@patientId</p>
+    <input type="hidden" name="patientId" value="@patientId" />
+
+    <label>Appointment:</label>
+    <select name="appointmentId" required>
+        <option disabled selected value="">-- Select Appointment --</option>
+        @foreach (var appointment in appointments)
+        {
+            <option value="@appointment.AppointmentId">
+                Dr. @appointment.Doctor.Name on @appointment.AppointmentDate.ToShortDateString()
+            </option>
+        }
+    </select>
+    <br /><br />
+
+    <label>Rating (1-5):</label>
+    <input type="number" name="rating" min="1" max="5" required />
+    <br /><br />
+
+    <label>Comments:</label>
+    <textarea name="comments" required></textarea>
+    <br /><br />
+
+    <button type="submit">Submit</button>
+</form>

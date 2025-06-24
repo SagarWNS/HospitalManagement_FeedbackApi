@@ -1,0 +1,13 @@
+@{
+    ViewBag.Title = "Success";
+    var patientId = ViewBag.PatientId ?? 1; // fallback to 1 if null
+}
+
+<h2>✅ Feedback Submitted Successfully!</h2>
+<p>Thank you for your feedback.</p>
+
+<p>
+    <a href="/FeedbackView/ViewFeedbacks?patientId=@patientId">
+        View Your Submitted Feedbacks
+    </a>
+</p>

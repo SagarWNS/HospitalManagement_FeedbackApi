@@ -1,0 +1,45 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Feedback.Api
+build_property.RootNamespace = Feedback.Api
+build_property.ProjectDir = C:\Users\u499161\Desktop\HospitalManagement_FeedbackApi\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\u499161\Desktop\HospitalManagement_FeedbackApi
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/u499161/Desktop/HospitalManagement_FeedbackApi/Views/FeedbackView/DoctorViewFeedbacks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tWaWV3XERvY3RvclZpZXdGZWVkYmFja3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/u499161/Desktop/HospitalManagement_FeedbackApi/Views/FeedbackView/Submit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tWaWV3XFN1Ym1pdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/u499161/Desktop/HospitalManagement_FeedbackApi/Views/FeedbackView/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tWaWV3XFN1Y2Nlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/u499161/Desktop/HospitalManagement_FeedbackApi/Views/FeedbackView/ViewFeedbacks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tWaWV3XFZpZXdGZWVkYmFja3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
