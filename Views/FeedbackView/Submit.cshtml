@@ -2,13 +2,18 @@
     ViewData["Title"] = "Submit Feedback";
     var appointments = ViewBag.Appointments as List<HospitalManagement.FeedbackApi.Models.Appointment>;
     var patientId = ViewBag.PatientId;
+    var errormessage = ViewBag.Errormessage as string;
 }
 
 <h2>Submit Feedback</h2>
 
+@if(!string.IsNullOrEmpty(errormessage)){
+    <div> @errormessage </div>
+}
+
 <form asp-action="Submit" asp-controller="FeedbackView" method="post">
     @Html.AntiForgeryToken()
-    <p>Debug: PatientId=@patientId</p>
+    <p>PatientId=@patientId</p>
     <input type="hidden" name="patientId" value="@patientId" />
 
     <label>Appointment:</label>

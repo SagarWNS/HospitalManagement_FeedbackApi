@@ -32,8 +32,6 @@ namespace HospitalManagement.FeedbackApi.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Submit(int appointmentId, int rating, string comments, int patientId)
         {
-            Console.WriteLine($"[DEBUG] AppointmentId: {appointmentId}, Rating: {rating}, PatientId: {patientId}");
-
             var appointment = _context.Appointments
                 .Include(a => a.Doctor)
                 .Include(a => a.Patient)
@@ -41,17 +39,22 @@ namespace HospitalManagement.FeedbackApi.Controllers
 
             if (appointment == null)
             {
-                Console.WriteLine("Appointment not found.");
-                return BadRequest("Appointment does not exist.");
+                ViewBag.ErrorMessage = "Appointment does not exist.";
+                return ReloadSubmitView(patientId);
             }
 
             if (appointment.IsApproved == false)
             {
-                return BadRequest("Appointment is not approved so Feedback can't be submitted.");
+                ViewBag.ErrorMessage = "Appointment is not Approved. Feedback cannot be submitted.";
+                return ReloadSubmitView(patientId);
             }
 
-            Console.WriteLine($"✅ Found Appointment with DoctorId: {appointment.DoctorId}, PatientId: {appointment.PatientId}");
-
+            var Existingfeedback = _context.Feedbacks.Any(f => f.AppointmentId == appointmentId);
+            if (Existingfeedback)
+            {
+                ViewBag.ErrorMessage = "Feedback has already been submitted for this appointment.";
+                return ReloadSubmitView(patientId);
+            }
                 
             var feedback = new Feedbacks
             {
@@ -66,6 +69,19 @@ namespace HospitalManagement.FeedbackApi.Controllers
             _context.Feedbacks.Add(feedback);
             _context.SaveChanges();
             return RedirectToAction("Success", new { patientId });
+        }
+
+        private IActionResult ReloadSubmitView(int patientId)
+        { 
+            var appointments = _context.Appointments
+                .Include(a => a.Doctor)
+                .Where(a => a.PatientId == patientId)
+                .ToList();
+
+            ViewBag.PatientId = patientId;
+            ViewBag.Appointments = appointments;
+
+            return View(); 
         }
 
         [HttpGet]

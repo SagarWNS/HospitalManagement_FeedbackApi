@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Feedback.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250624014228_Feedback")]
+    [Migration("20250624043700_Feedback")]
     partial class Feedback
     {
         /// <inheritdoc />
